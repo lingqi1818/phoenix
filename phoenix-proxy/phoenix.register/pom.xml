@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ <parent>
+ <groupId>com.fangcloud.phoenix</groupId>
+ <version>0.1</version>
+ <artifactId>phoenix-proxy</artifactId>
+ <relativePath>../pom.xml</relativePath>
+</parent>
+  <groupId>phoenix.register</groupId>
+  <artifactId>phoenix.register</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1</version>
+  <name>phoenix.register</name>
+<dependencies>
+<dependency>
+  <groupId>phoenix.common</groupId>
+  <artifactId>phoenix.common</artifactId>
+  <version>${pom.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.zookeeper</groupId>
+    <artifactId>zookeeper</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+</dependency>
+<dependency>  
+    <groupId>org.apache.curator</groupId>  
+    <artifactId>curator-recipes</artifactId>  
+</dependency>
+</dependencies>
+  <build>
+	<resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.properties</include>
+          <include>**/*.vm</include>
+        </includes>
+      </resource>
+    </resources>
+	<finalName>phoenix.register-${pom.version}</finalName>
+  </build>
+</project>

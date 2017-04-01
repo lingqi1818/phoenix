@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <!-- config dubbo -->
+    <dubbo:application name="phoenix-test" organization="fangcloud-phoenix"/>
+
+    <!-- <dubbo:protocol name="dubbo" port="20881"/> -->
+	<dubbo:protocol name="hessian" port="8083" />
+    <dubbo:registry id="fangcloud-registry" protocol="zookeeper"
+                    address="127.0.0.1:2181" />
+
+    <dubbo:monitor protocol="registry"/>
+
+    <dubbo:service interface="com.fangcloud.phoenix.test.HelloService"
+                   ref="helloService" timeout="2000"  registry="fangcloud-registry"/>
+    <bean id="helloService" class="com.fangcloud.phoenix.test.HelloServiceImpl" />
+    
+	<dubbo:reference id="helloServiceR" interface="com.fangcloud.phoenix.test.HelloService" />
+</beans>

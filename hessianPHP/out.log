@@ -1,0 +1,169 @@
+2017-03-30 23:24:11
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (23.7-b01 mixed mode):
+
+"Attach Listener" daemon prio=5 tid=0x00007fd675051000 nid=0x4703 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Phoenix-server" prio=5 tid=0x00007fd672956000 nid=0x4603 runnable [0x00007000085f7000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:159)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:103)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x00000007c120c5b0> (a sun.nio.ch.Util$2)
+	- locked <0x00000007c120c5c0> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x00000007c120c550> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at com.fangcloud.phoenix.server.io.NIOAcceptor.run(NIOAcceptor.java:57)
+
+"commons-pool-EvictionTimer" daemon prio=5 tid=0x00007fd671896800 nid=0x4503 in Object.wait() [0x00007000086fa000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007c1214070> (a java.util.TaskQueue)
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	- locked <0x00000007c1214070> (a java.util.TaskQueue)
+	at java.util.TimerThread.run(Timer.java:505)
+
+"Curator-Framework-0" daemon prio=5 tid=0x00007fd6740ee000 nid=0x1507 waiting on condition [0x00007000084f4000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000007c12104c0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:209)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:68)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:804)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+
+"main-EventThread" daemon prio=5 tid=0x00007fd671803800 nid=0x1307 waiting on condition [0x00007000083f1000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000007c120c650> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:501)
+
+"main-SendThread(127.0.0.1:2181)" daemon prio=5 tid=0x00007fd674135000 nid=0x3907 runnable [0x00007000082ee000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:159)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:103)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x00000007c1216108> (a sun.nio.ch.Util$2)
+	- locked <0x00000007c1216118> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x00000007c12160b8> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:349)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1141)
+
+"Curator-ConnectionStateManager-0" daemon prio=5 tid=0x00007fd674101000 nid=0x1007 waiting on condition [0x00007000081eb000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000007c120c740> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
+	at java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:374)
+	at org.apache.curator.framework.state.ConnectionStateManager.processEvents(ConnectionStateManager.java:245)
+	at org.apache.curator.framework.state.ConnectionStateManager.access$000(ConnectionStateManager.java:43)
+	at org.apache.curator.framework.state.ConnectionStateManager$1.call(ConnectionStateManager.java:111)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+
+"$_Phoenix-Reactor-1" prio=5 tid=0x00007fd6728ef800 nid=0x4403 runnable [0x00007000080e8000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:159)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:103)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x00000007c12141d0> (a sun.nio.ch.Util$2)
+	- locked <0x00000007c12504b8> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x00000007c1214168> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at com.fangcloud.phoenix.server.io.NIOReactor.run(NIOReactor.java:43)
+	at java.lang.Thread.run(Thread.java:722)
+
+"$_Phoenix-Reactor-0" prio=5 tid=0x00007fd6728ef000 nid=0x4303 runnable [0x0000700007fe5000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:159)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:103)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x00000007c1210768> (a sun.nio.ch.Util$2)
+	- locked <0x00000007c1210778> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x00000007c1210718> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at com.fangcloud.phoenix.server.io.NIOReactor.run(NIOReactor.java:43)
+	at java.lang.Thread.run(Thread.java:722)
+
+"Service Thread" daemon prio=5 tid=0x00007fd671842000 nid=0x4103 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" daemon prio=5 tid=0x00007fd674002000 nid=0x4003 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" daemon prio=5 tid=0x00007fd674000000 nid=0x3f03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" daemon prio=5 tid=0x00007fd672843000 nid=0x3e03 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" daemon prio=5 tid=0x00007fd67180b800 nid=0x2e03 in Object.wait() [0x0000700007950000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007c1213400> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	- locked <0x00000007c1213400> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:177)
+
+"Reference Handler" daemon prio=5 tid=0x00007fd67180b000 nid=0x2d03 in Object.wait() [0x000070000784d000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007c1214128> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+	- locked <0x00000007c1214128> (a java.lang.ref.Reference$Lock)
+
+"main" prio=5 tid=0x00007fd672800000 nid=0x1b03 in Object.wait() [0x0000700006e2f000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007c120d0e0> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1258)
+	- locked <0x00000007c120d0e0> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1332)
+	at com.fangcloud.phoenix.server.test.PhoenixServerTest.main(PhoenixServerTest.java:11)
+
+"VM Thread" prio=5 tid=0x00007fd67201e000 nid=0x2c03 runnable 
+
+"GC task thread#0 (ParallelGC)" prio=5 tid=0x00007fd67280d000 nid=0x2403 runnable 
+
+"GC task thread#1 (ParallelGC)" prio=5 tid=0x00007fd67280e000 nid=0x2503 runnable 
+
+"GC task thread#2 (ParallelGC)" prio=5 tid=0x00007fd67280e800 nid=0x2603 runnable 
+
+"GC task thread#3 (ParallelGC)" prio=5 tid=0x00007fd67280f000 nid=0x2703 runnable 
+
+"GC task thread#4 (ParallelGC)" prio=5 tid=0x00007fd67280f800 nid=0x2803 runnable 
+
+"GC task thread#5 (ParallelGC)" prio=5 tid=0x00007fd672810800 nid=0x2903 runnable 
+
+"GC task thread#6 (ParallelGC)" prio=5 tid=0x00007fd672811000 nid=0x2a03 runnable 
+
+"GC task thread#7 (ParallelGC)" prio=5 tid=0x00007fd672811800 nid=0x2b03 runnable 
+
+"VM Periodic Task Thread" prio=5 tid=0x00007fd674808000 nid=0x4203 waiting on condition 
+
+JNI global references: 256
+
